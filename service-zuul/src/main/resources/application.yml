@@ -1,0 +1,18 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: service-zuul
+#也可以不配置，默认就是服务名+路径
+zuul:
+  routes:
+    service-provider: /provider/** #路由名称，可以随便写，习惯上服务名
+    service-consumer: /consumer/**
+  prefix: /api #前缀,zuul网关的前缀
+      #path: /service-provider/**
+      #url: http://localhost:8003
+      #serviceId: service-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka

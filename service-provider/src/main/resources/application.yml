@@ -1,0 +1,27 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: service-provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou
+    username: root
+    password: 789qwedsa987
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+
+  #开启彩色日志
+  output:
+    ansi:
+      enabled: ALWAYS
+mybatis:
+  type-aliases-package: com.service.provider.pojo
+eureka:
+  client:
+    service-url: #eurekaServer的地址
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true #当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    ip-address: 127.0.0.1 #指定自己的ip信息，如果不指定的话会自己寻找
+
